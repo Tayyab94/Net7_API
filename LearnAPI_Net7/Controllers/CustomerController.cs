@@ -11,9 +11,14 @@ namespace LearnAPI_Net7.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
-        public CustomerController(ICustomerService customerService)
+        private readonly ILogger<CustomerController> _logger;
+
+
+        public CustomerController(ICustomerService customerService, ILogger<CustomerController> logger)
         {
             _customerService = customerService;
+            _logger = logger;   
+
         }
 
         [HttpGet]
@@ -28,11 +33,23 @@ namespace LearnAPI_Net7.Controllers
         [HttpGet("GetById")]
         public async Task<IActionResult> GetById(int id)
         {
-            var data = await _customerService.GetById(id);
-            if (data is null)
-                return NotFound();
 
-            return Ok(data);
+            try
+            {
+                _logger
+                .LogInformation("---- Get Customer by Id ------");
+                var data = await _customerService.GetById(id);
+                if (data==null) 
+                    return NotFound();
+
+                return Ok(data);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message, e);
+            }
+            return BadRequest();
+            
         }
 
         [HttpPost(Name ="Create")]
