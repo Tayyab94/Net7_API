@@ -18,7 +18,10 @@ builder.Services.AddDbContext<LearnDataContaxt>(op =>
 {
     op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-
+//builder.Services.AddNewtonsoftJson(options =>
+// {
+//     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+// });
 // Adding AutoMapper 
 var autoMapper = new MapperConfiguration(item => item.AddProfile(new AutoMapperHandler()));
 IMapper mapper= autoMapper.CreateMapper();

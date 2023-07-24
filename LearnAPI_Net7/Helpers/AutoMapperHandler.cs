@@ -9,7 +9,10 @@ namespace LearnAPI_Net7.Helpers
         public AutoMapperHandler()
         {
             CreateMap<Customer, CustomerVM>().ForMember(item => item.Info, opt=>opt.MapFrom(s=>
-            $"{s.Id}-{s.Name}-{s.Email}"));
+            $"{s.Id}-{s.Name}-{s.Email}"))
+                .ForMember(item => item.CustomerId, opt => opt.MapFrom(s=>s.Id)).ReverseMap();
+
+            CreateMap<CreateCustomreVM, Customer>();
         }
     }
 }
