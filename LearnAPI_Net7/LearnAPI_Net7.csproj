@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="ClosedXML" Version="0.102.0" />
     <PackageReference Include="JWT" Version="10.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.4" />
@@ -27,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Upload\Excelsheet\" />
     <Folder Include="wwwroot\Upload\Products\" />
   </ItemGroup>
 

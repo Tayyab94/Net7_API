@@ -1,10 +1,12 @@
-﻿using LearnAPI_Net7.Models;
+﻿using ClosedXML.Excel;
+using LearnAPI_Net7.Models;
 using LearnAPI_Net7.Models.ViewModels;
 using LearnAPI_Net7.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
+using System.Data;
 
 namespace LearnAPI_Net7.Controllers
 {
@@ -16,12 +18,15 @@ namespace LearnAPI_Net7.Controllers
     {
         private readonly ICustomerService _customerService;
         private readonly ILogger<CustomerController> _logger;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
 
-        public CustomerController(ICustomerService customerService, ILogger<CustomerController> logger)
+        public CustomerController(ICustomerService customerService, ILogger<CustomerController> logger,
+            IWebHostEnvironment webHostEnvironment)
         {
             _customerService = customerService;
             _logger = logger;   
+            this._webHostEnvironment= webHostEnvironment;
 
         }
 
@@ -80,6 +85,61 @@ namespace LearnAPI_Net7.Controllers
         {
             var data = await this._customerService.Remove(id);
             return Ok(data);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("ExportCustomerExcelSheet")]
+        public async Task<IActionResult> ExportCustomerExcelSheet(bool SaveFolder)
+        {
+            try
+            {
+                string FilePath = GetFilePath();
+                string excelPath = FilePath + "\\CustomerInfo.xlsx";
+
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Id", typeof(int));
+                dt.Columns.Add("Name", typeof(string));
+                dt.Columns.Add("Email", typeof(string));
+
+                var data = await this._customerService.GetAll();
+                if(data is not null && data.Count> 0)
+                {
+                    data.ForEach(item =>
+                    {
+                        dt.Rows.Add(item.CustomerId, item.Name, item.Email);
+                    });
+                }
+                using(XLWorkbook wb= new XLWorkbook())
+                {
+                    wb.Worksheets.Add(dt, "Customer Info");
+                    using(MemoryStream  ms=new MemoryStream())
+                    {
+                        wb.SaveAs(ms);
+
+                        // To sve Excel sheet into the Project's Folder
+                        if(SaveFolder)
+                        {
+                            if(System.IO.File.Exists(excelPath))
+                            {
+                                System.IO.File.Delete(excelPath);
+                            }
+                            wb.SaveAs(excelPath);
+                        }
+                        return File(ms.ToArray(), "application/vnd.openxlmformats-officedocument.spreadsheetml.sheet", "Customer.xlsx");
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                return NotFound();
+            }
+        }
+
+        [NonAction]
+        private string GetFilePath()
+        {
+            return this._webHostEnvironment.WebRootPath + "\\Upload\\Excelsheet\\";
         }
     }
 }

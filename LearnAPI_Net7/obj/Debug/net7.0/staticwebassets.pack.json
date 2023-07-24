@@ -1,12 +1,8 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\tayya\\Desktop\\LearnAPI_Net7\\LearnAPI_Net7\\wwwroot\\Upload\\Products\\020\\Website Design In Figma - Copy.jpg",
-      "PackagePath": "staticwebassets\\Upload\\Products\\020\\Website Design In Figma - Copy.jpg"
-    },
-    {
-      "Id": "C:\\Users\\tayya\\Desktop\\LearnAPI_Net7\\LearnAPI_Net7\\wwwroot\\Upload\\Products\\020\\demo.png",
-      "PackagePath": "staticwebassets\\Upload\\Products\\020\\demo.png"
+      "Id": "C:\\Users\\tayya\\Desktop\\LearnAPI_Net7\\LearnAPI_Net7\\wwwroot\\Upload\\Products\\01\\01.png",
+      "PackagePath": "staticwebassets\\Upload\\Products\\01\\01.png"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.LearnAPI_Net7.Microsoft.AspNetCore.StaticWebAssets.props",

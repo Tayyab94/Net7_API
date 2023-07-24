@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "d3GUsBr+yFPbbzAbCC1g1vdsZOjwMZ8rHiOSmBQy2n4=",
+  "Hash": "9xlABdBGeP0raOqsmWMJ0jFIqZ14rAhhPKo8kcF6fZU=",
   "Source": "LearnAPI_Net7",
   "BasePath": "_content/LearnAPI_Net7",
   "Mode": "Default",
@@ -15,5 +15,23 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\tayya\\Desktop\\LearnAPI_Net7\\LearnAPI_Net7\\wwwroot\\Upload\\Products\\01\\01.png",
+      "SourceId": "LearnAPI_Net7",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tayya\\Desktop\\LearnAPI_Net7\\LearnAPI_Net7\\wwwroot\\",
+      "BasePath": "_content/LearnAPI_Net7",
+      "RelativePath": "Upload/Products/01/01.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\Products\\01\\01.png"
+    }
+  ]
 }
