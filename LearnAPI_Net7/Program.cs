@@ -2,11 +2,14 @@ using AutoMapper;
 using LearnAPI_Net7.Container;
 using LearnAPI_Net7.ContaxtFiles;
 using LearnAPI_Net7.Helpers;
+using LearnAPI_Net7.Models.ViewModels;
 using LearnAPI_Net7.Models.ViewModels.ModelsHelpers;
 using LearnAPI_Net7.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -170,6 +173,57 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+
+//app.Urls.Add("https://localhost:4000");
+app.MapGet("/mi/api/getString", (string channelName) => "Welcoem to " + channelName);
+app.MapGet("/mi/api/channelNane", (string channelName) => "Welcoem to " + channelName).WithOpenApi(opt =>
+{
+    var parameter = opt.Parameters[0];
+    parameter.Description = "Enter Channel Name";
+    return opt;
+});
+
+app.MapGet("/mi/api/getCustomers", async (LearnDataContaxt _context) =>
+{
+    return await _context.Customers.ToListAsync(); ;
+
+});
+
+app.MapGet("/mi/api/getCustomersDemo", async ([FromServices] ICustomerService _customerService) =>
+{
+    var data = await _customerService.GetAll();
+    return data;
+});
+
+
+
+app.MapGet("/mi/api/GetCustomerById/{id}", async ([FromServices] ICustomerService _customerService, int id) =>
+{
+    var data = await _customerService.GetById(id);
+    return data;
+});
+
+
+app.MapPost("/mi/api/CreateCustomer", async ([FromServices] ICustomerService _customerService, CreateCustomreVM model) =>
+{
+    var data = await _customerService.CreateCustomer(model);
+    return data;
+});
+
+
+app.MapPut("/mi/api/UpdateCustomer/{id}", async (LearnDataContaxt _context, CreateCustomreVM model, int id) =>
+{
+    var data = await _context.Customers.FirstOrDefaultAsync(s=>s.Id == id);
+    if (data == null)
+        return Results.BadRequest();
+
+    data.Name = model.Name;
+    data.Email  = model.Email;
+     _context.Customers.Update(data);
+    await _context.SaveChangesAsync();
+    return Results.NoContent();
+});
 
 app.MapControllers();
 

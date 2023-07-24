@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\tayya\\Desktop\\LearnAPI_Net7\\LearnAPI_Net7\\wwwroot\\Upload\\Excelsheet\\CustomerInfo.xlsx",
+      "PackagePath": "staticwebassets\\Upload\\Excelsheet\\CustomerInfo.xlsx"
+    },
+    {
       "Id": "C:\\Users\\tayya\\Desktop\\LearnAPI_Net7\\LearnAPI_Net7\\wwwroot\\Upload\\Products\\01\\01.png",
       "PackagePath": "staticwebassets\\Upload\\Products\\01\\01.png"
     },
