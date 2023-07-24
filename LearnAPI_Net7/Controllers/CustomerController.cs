@@ -13,5 +13,13 @@ namespace LearnAPI_Net7.Controllers
         {
             _customerService = customerService;
         }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var data= _customerService.GetAll();
+            if (data is null) return NotFound();
+            return Ok(data);
+        }
     }
 }

@@ -1,5 +1,7 @@
+using AutoMapper;
 using LearnAPI_Net7.Container;
 using LearnAPI_Net7.ContaxtFiles;
+using LearnAPI_Net7.Helpers;
 using LearnAPI_Net7.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +18,12 @@ builder.Services.AddDbContext<LearnDataContaxt>(op =>
 {
     op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+// Adding AutoMapper 
+var autoMapper = new MapperConfiguration(item => item.AddProfile(new AutoMapperHandler()));
+IMapper mapper= autoMapper.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
 
 var app = builder.Build();
 

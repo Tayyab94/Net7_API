@@ -74,3 +74,4 @@ C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\obj\Debug\net7.0\refint\Learn
 C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\obj\Debug\net7.0\LearnAPI_Net7.pdb
 C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\obj\Debug\net7.0\LearnAPI_Net7.genruntimeconfig.cache
 C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\obj\Debug\net7.0\ref\LearnAPI_Net7.dll
+C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\AutoMapper.dll

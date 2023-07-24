@@ -1,15 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "mEaoaTO2YEZbspEpe+V/h8mhLowOi1aKdstrhJll4y/M+efJnX03pQc+urb/8lv7z+JMcRsM+LDyb6qLHa7RsA==",
+  "dgSpecHash": "k7OgsSmIQX+uwSPP2rSxAKlVLbHHD5my/wqWJZ6g3Z1ZO3xMAMEAbGy8zj+sddQy7F1uyMN/4jrZ9aPc9Fu23A==",
   "success": true,
   "projectFilePath": "C:\\Users\\tayya\\Desktop\\LearnAPI_Net7\\LearnAPI_Net7\\LearnAPI_Net7.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tayya\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.4\\microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\tayya\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\tayya\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.2\\microsoft.data.sqlclient.5.0.2.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.9\\microsoft.entityframeworkcore.7.0.9.nupkg.sha512",
