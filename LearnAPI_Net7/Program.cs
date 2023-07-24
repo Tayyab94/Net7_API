@@ -3,6 +3,8 @@ using LearnAPI_Net7.Container;
 using LearnAPI_Net7.ContaxtFiles;
 using LearnAPI_Net7.Helpers;
 using LearnAPI_Net7.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -38,6 +40,14 @@ builder.Services.AddCors(p => p.AddDefaultPolicy(build =>
     build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));
 
+builder.Services.AddRateLimiter(_ => _.AddFixedWindowLimiter(policyName: "fixedWindow", options =>
+{
+    options.Window = TimeSpan.FromSeconds(30);
+    options.PermitLimit = 10;
+    options.QueueLimit = 2;
+    options.QueueProcessingOrder = System.Threading.RateLimiting.QueueProcessingOrder.OldestFirst;
+}).RejectionStatusCode=406);
+
 
 // Create Projects logs and save 
 string logPath = builder.Configuration.GetSection("Logging:Logpath").Value;
@@ -57,6 +67,8 @@ builder.Services.AddSingleton(mapper);
 
 
 var app = builder.Build();
+
+app.UseRateLimiter();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
