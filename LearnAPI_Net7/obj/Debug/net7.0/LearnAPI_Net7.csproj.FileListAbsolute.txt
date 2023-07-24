@@ -87,3 +87,4 @@ C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\Serilog.Sink
 C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\JWT.dll
 C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\LearnAPI_Net7.staticwebassets.runtime.json

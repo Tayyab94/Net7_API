@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "4LTeXk73fXe+ot7Vq0WqcVjxn2FjMRA+XtAXoKWvUQU=",
+  "Hash": "d3GUsBr+yFPbbzAbCC1g1vdsZOjwMZ8rHiOSmBQy2n4=",
   "Source": "LearnAPI_Net7",
   "BasePath": "_content/LearnAPI_Net7",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LearnAPI_Net7\\wwwroot",
+      "Source": "LearnAPI_Net7",
+      "ContentRoot": "C:\\Users\\tayya\\Desktop\\LearnAPI_Net7\\LearnAPI_Net7\\wwwroot\\",
+      "BasePath": "_content/LearnAPI_Net7",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

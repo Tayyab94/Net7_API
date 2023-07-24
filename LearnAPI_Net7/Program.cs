@@ -160,6 +160,8 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseStaticFiles();
+
 app.UseCors("Corspolicy");
 
 //app.UseCors(); // For Default CorsPolicy
