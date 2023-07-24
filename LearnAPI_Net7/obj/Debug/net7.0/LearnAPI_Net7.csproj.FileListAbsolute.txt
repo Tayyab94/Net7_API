@@ -84,3 +84,6 @@ C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\Serilog.Sett
 C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\Serilog.Sinks.Console.dll
 C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\Serilog.Sinks.Debug.dll
 C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\Serilog.Sinks.File.dll
+C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\JWT.dll
+C:\Users\tayya\Desktop\LearnAPI_Net7\LearnAPI_Net7\bin\Debug\net7.0\Newtonsoft.Json.dll
