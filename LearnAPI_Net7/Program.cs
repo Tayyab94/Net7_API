@@ -3,6 +3,7 @@ using LearnAPI_Net7.Container;
 using LearnAPI_Net7.ContaxtFiles;
 using LearnAPI_Net7.Helpers;
 using LearnAPI_Net7.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,10 @@ builder.Services.AddDbContext<LearnDataContaxt>(op =>
     op.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+// Enable basic Authentication
+builder.Services.AddAuthentication("BasicAuthentication")
+    .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
 //Enabling the CORS 
 builder.Services.AddCors(p => p.AddPolicy("Corspolicy", build =>
 {
@@ -40,13 +45,13 @@ builder.Services.AddCors(p => p.AddDefaultPolicy(build =>
     build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));
 
-builder.Services.AddRateLimiter(_ => _.AddFixedWindowLimiter(policyName: "fixedWindow", options =>
-{
-    options.Window = TimeSpan.FromSeconds(30);
-    options.PermitLimit = 10;
-    options.QueueLimit = 2;
-    options.QueueProcessingOrder = System.Threading.RateLimiting.QueueProcessingOrder.OldestFirst;
-}).RejectionStatusCode=406);
+//builder.Services.AddRateLimiter(_ => _.AddFixedWindowLimiter(policyName: "fixedWindow", options =>
+//{
+//    options.Window = TimeSpan.FromSeconds(30);
+//    options.PermitLimit = 10;
+//    options.QueueLimit = 2;
+//    options.QueueProcessingOrder = System.Threading.RateLimiting.QueueProcessingOrder.OldestFirst;
+//}).RejectionStatusCode=406);
 
 
 // Create Projects logs and save 
@@ -68,7 +73,7 @@ builder.Services.AddSingleton(mapper);
 
 var app = builder.Build();
 
-app.UseRateLimiter();
+//app.UseRateLimiter();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -83,6 +88,7 @@ app.UseCors("Corspolicy");
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

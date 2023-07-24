@@ -1,16 +1,17 @@
 ﻿using LearnAPI_Net7.Models;
 using LearnAPI_Net7.Models.ViewModels;
 using LearnAPI_Net7.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 
 namespace LearnAPI_Net7.Controllers
 {
-
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    [EnableRateLimiting("fixedWindow")]
+    //[EnableRateLimiting("fixedWindow")]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
@@ -24,7 +25,7 @@ namespace LearnAPI_Net7.Controllers
 
         }
 
-        [DisableRateLimiting]
+        //[DisableRateLimiting]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
